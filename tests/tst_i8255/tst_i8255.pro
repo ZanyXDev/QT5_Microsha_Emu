@@ -1,9 +1,22 @@
-QT += testlib
-QT -= gui
+QT += core testlib
 
-CONFIG += qt console warn_on depend_includepath testcase
-CONFIG -= app_bundle
+TARGET = tst_i8080
+
+CONFIG += qt warn_on depend_includepath testcase console
+CONFIG   -= app_bundle
+
+DEFINES += SRCDIR=\\\"$$PWD/\\\"
+
+INCLUDEPATH += $$PWD/../Microsha
+DEPENDPATH += $$PWD/../Microsha
 
 TEMPLATE = app
 
-SOURCES +=  Test_i8255.cpp
+
+HEADERS += \
+         ../../microsha/simple.h
+
+SOURCES +=  \
+         Test_i8255.cpp \
+         ../../microsha/simple.cpp
+

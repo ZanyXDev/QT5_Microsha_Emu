@@ -16,7 +16,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         i8080.cpp \
-        main.cpp
+        main.cpp \
+        simple.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -24,4 +25,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS +=  \
-    i8080.h
+    i8080.h \
+    simple.h
