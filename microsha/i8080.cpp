@@ -17,3 +17,8 @@ void i8080::init()
     flags.unused5 =0;
     PC = 0xF800;
 }
+
+void i8080::execute()
+{
+
+}
