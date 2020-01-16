@@ -3,6 +3,7 @@ QT -= gui
 CONFIG += c++11 console
 CONFIG -= app_bundle
 
+
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -16,14 +17,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         i8080.cpp \
-        main.cpp \
-        simple.cpp
+        main.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-HEADERS +=  \
-    i8080.h \
-    simple.h
+HEADERS +=  \    
+    i8080.h

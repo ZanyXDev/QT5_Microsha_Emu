@@ -1,0 +1,8 @@
+#ifndef APP_VERSION_H
+#define APP_VERSION_H
+
+#define APP_TIME     $$GIT_TIMESTAMP
+#define APP_COMMIT_COUNT $$GIT_COMMIT_COUNT
+#define GIT_VERSION1 \"$$GIT_VERSION\"
+
+#endif // APP_VERSION_H
