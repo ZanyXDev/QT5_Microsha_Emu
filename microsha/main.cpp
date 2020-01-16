@@ -2,6 +2,7 @@
 #include <QDebug>
 #include <QDateTime>
 #include "../app_version.h"
+#include "memory.h"
 #include "runner.h"
 #include "i8080.h"
 
@@ -23,7 +24,14 @@ int main(int argc, char *argv[])
     app.setApplicationName(QString("Microsha QT5 emulator. ver:%1").arg(version));
 
     i8080 *cpu = new i8080(&app);
+    cpu->setMemory( new Memory(&app) );
+
     Runner *runner = new Runner(&app);
     runner->setCPU(cpu,FREQ);
+
+    ///@todo test run
+    QObject::connect(runner, &Runner::finished, &QApplication::quit);
+    QTimer::singleShot(0, runner, SLOT(start()));
+
     return app.exec();
 }
