@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QTimer>
+#include <QDebug>
+
 #include "i8080.h"
 
 class Runner : public QObject
@@ -18,9 +20,10 @@ public:
 
 signals:
     void updateScreen();
+    void finished();
 
 public slots:
-    void execute();
+    void start();
     void setPaused();
     void setResume();
 
@@ -35,6 +38,7 @@ private :
     QTimer m_timer;
 
     void setFreq(int freq);
+    void execute();
 };
 
 #endif // RUNNER_H

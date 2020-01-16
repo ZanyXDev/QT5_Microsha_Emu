@@ -38,18 +38,22 @@ void Runner::execute()
     if ( !m_paused )
     {
         m_ElapsedTime++;
+        qDebug() << m_ElapsedTime;
         if ( m_ticks < ticks_per_ms)
         {
             m_ticks += m_cpu->instruction();
         }else
         {
             m_ticks = 0;
+            ///@todo test exit
+            emit finished();
         }
         /**
          * @note every 1/60sec send signal updateScreen
          */
         if (m_ElapsedTime > 1000 / 60 )
         {
+             qDebug() << "updateScreen";
             emit updateScreen();
             m_ElapsedTime = 0;
         }
@@ -59,6 +63,11 @@ void Runner::execute()
 bool Runner::isPaused() const
 {
     return m_paused;
+}
+
+void Runner::start()
+{
+    setResume();
 }
 
 void Runner::setJump(quint16 adr)
@@ -74,10 +83,12 @@ void Runner::setJump(quint16 adr)
 void Runner::setPaused()
 {
     m_paused = true;
+    m_timer.stop();
 }
 
 void Runner::setResume()
 {
     m_paused = false;
+    m_timer.start();
 }
 
