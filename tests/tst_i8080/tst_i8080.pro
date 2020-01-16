@@ -4,7 +4,7 @@ TARGET = tst_i8080
 
 CONFIG += qt warn_on depend_includepath testcase console
 CONFIG += c++11
-DEFINES += SRCDIR=\\\"$$PWD/\\\"6
+DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
 INCLUDEPATH += $$PWD/../microsha
 DEPENDPATH += $$PWD/../microsha
