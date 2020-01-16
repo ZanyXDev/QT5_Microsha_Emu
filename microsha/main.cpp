@@ -9,15 +9,16 @@
 
 int main(int argc, char *argv[])
 {
-    QString version = QString("%1.%2.%3 build time[%4]")
+    //Q_INIT_RESOURCE(microsha_res);
+    QString version = QString("%1.%2.%3 build [%4]")
             .arg(VER_MAJOR)
             .arg(GIT_VERSION)
             .arg(APP_COMMIT_COUNT)
             .arg(APP_TIME);
 
-    qDebug() << "APP_TIME:"<<APP_TIME<< " version:" <<version;
+    qDebug() <<" version:" <<version;
 
-    //Q_INIT_RESOURCE(microsha_res);
+
     QApplication app(argc, argv);
     app.setApplicationName(QString("Microsha QT5 emulator. ver:%1").arg(version));
 

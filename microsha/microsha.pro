@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         i8080.cpp \
         main.cpp \
+        memory.cpp \
         runner.cpp
 
 # Default rules for deployment.
@@ -26,5 +27,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS +=  \
+    memory.h \
     runner.h \
     i8080.h
