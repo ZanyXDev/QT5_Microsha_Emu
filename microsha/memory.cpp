@@ -27,6 +27,8 @@ Memory::Memory(QObject *parent) : QObject(parent)
 
     video_screen_cursor_x = 0;
     video_screen_cursor_y = 0;
+
+    this->init();
 }
 
 int Memory::length()
