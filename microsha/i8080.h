@@ -2,6 +2,7 @@
 #define I8080_H
 
 #include <QObject>
+#include "memory.h"
 
 typedef union {
     struct {
@@ -58,7 +59,7 @@ public:
     explicit i8080(QObject *parent = nullptr);
     ~i8080();
     void setJump(quint16 adr);
-
+    void setMemory(Memory *mem);
 signals:
     quint8 executeDuration();
 
@@ -126,6 +127,7 @@ private:
      * @brief cpu_cycles количество машинных циклов затрачиваемых на команду
      */
     quint16 cpu_cycles;
+    Memory *m_mem;
 };
 
 #endif // I8080_H
