@@ -56,12 +56,19 @@ class i8080 : public QObject
     Q_OBJECT
 public:
     explicit i8080(QObject *parent = nullptr);
-    void init();
+    ~i8080();
+    void setJump(quint16 adr);
 
 signals:
     quint8 executeDuration();
+
 public slots:
-    void execute();
+    /**
+     * @brief instruction() execute next instruction and
+     * @return how cpu_ticks duration's
+     */
+    quint8 instruction();
+
 private:
     enum{
         F_CARRY  = 0x01,

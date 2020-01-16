@@ -2,11 +2,6 @@
 
 i8080::i8080(QObject *parent) : QObject(parent)
 {
-
-}
-
-void i8080::init()
-{
     flags.carry_flag = 0;
     flags.sign_flag = 0;
     flags.zero_flag = 0;
@@ -15,10 +10,22 @@ void i8080::init()
     flags.unused1 =1;
     flags.unused3 =0;
     flags.unused5 =0;
-    PC = 0xF800;
+    PC = 0;
 }
 
-void i8080::execute()
+i8080::~i8080()
 {
 
 }
+
+quint8 i8080::instruction()
+{
+    return 0;
+}
+
+void i8080::setJump(quint16 adr)
+{
+
+}
+
+
